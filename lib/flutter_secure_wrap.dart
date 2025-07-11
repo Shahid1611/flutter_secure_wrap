@@ -75,36 +75,36 @@ class _SecureContentState extends State<SecureContent> {
     /// When content is visible, show it with tap-to-hide functionality.
     return isTextVisible
         ? InkWell(child: widget.child, onTap: () => _setTextVisibility())
-    /// When content is hidden, blur it and show an icon overlay.
+        /// When content is hidden, blur it and show an icon overlay.
         : ClipRRect(
-      borderRadius: BorderRadius.zero,
-      child: Stack(
-        children: [
-          widget.child, // Render the original content underneath.
-          Positioned.fill(
-            child: BackdropFilter(
-              /// Applies a blur filter across the masked content.
-              filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
-              child: Container(
-                /// Transparent overlay to darken and obscure content.
-                decoration: BoxDecoration(
-                  color: Colors.white.withValues(alpha: 0.01),
-                ),
-                alignment: Alignment.center,
-                child: InkWell(
-                  /// Tap icon to reveal the blurred content.
-                  onTap: () => _setTextVisibility(),
-                  child: Icon(
-                    Icons.visibility_off,
-                    size: 18.0,
-                    color: widget.iconColor,
+            borderRadius: BorderRadius.zero,
+            child: Stack(
+              children: [
+                widget.child, // Render the original content underneath.
+                Positioned.fill(
+                  child: BackdropFilter(
+                    /// Applies a blur filter across the masked content.
+                    filter: ImageFilter.blur(sigmaX: 5.0, sigmaY: 5.0),
+                    child: Container(
+                      /// Transparent overlay to darken and obscure content.
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.01),
+                      ),
+                      alignment: Alignment.center,
+                      child: InkWell(
+                        /// Tap icon to reveal the blurred content.
+                        onTap: () => _setTextVisibility(),
+                        child: Icon(
+                          Icons.visibility_off,
+                          size: 18.0,
+                          color: widget.iconColor,
+                        ),
+                      ),
+                    ),
                   ),
                 ),
-              ),
+              ],
             ),
-          ),
-        ],
-      ),
-    );
+          );
   }
 }

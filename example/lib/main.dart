@@ -67,13 +67,13 @@ class _HomePageState extends State<HomePage> {
                 SecureImageCard(
                   title: 'Bank passbook',
                   imageUrl:
-                  'https://5.imimg.com/data5/DL/NF/ZH/SELLER-85845681/sbi-black-passbook-1000x1000.jpg',
+                      'https://5.imimg.com/data5/DL/NF/ZH/SELLER-85845681/sbi-black-passbook-1000x1000.jpg',
                 ),
                 SizedBox(width: 16),
                 SecureImageCard(
                   title: 'PAN Card',
                   imageUrl:
-                  'https://5.imimg.com/data5/DL/NF/ZH/SELLER-85845681/sbi-black-passbook-1000x1000.jpg',
+                      'https://5.imimg.com/data5/DL/NF/ZH/SELLER-85845681/sbi-black-passbook-1000x1000.jpg',
                 ),
               ],
             ),
@@ -81,7 +81,7 @@ class _HomePageState extends State<HomePage> {
             const SecureImageCard(
               title: 'Aadhaar Card',
               imageUrl:
-              'https://5.imimg.com/data5/DL/NF/ZH/SELLER-85845681/sbi-black-passbook-1000x1000.jpg',
+                  'https://5.imimg.com/data5/DL/NF/ZH/SELLER-85845681/sbi-black-passbook-1000x1000.jpg',
             ),
           ],
         ),
@@ -160,12 +160,9 @@ class InfoRow extends StatelessWidget {
   final bool isSecure;
   final bool autoHide;
 
-  const InfoRow({
-    super.key,
-    required this.label,
-    required this.value,
-  })  : isSecure = false,
-        autoHide = false;
+  const InfoRow({super.key, required this.label, required this.value})
+    : isSecure = false,
+      autoHide = false;
 
   const InfoRow.secure({
     super.key,
@@ -176,10 +173,7 @@ class InfoRow extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Widget content = Text(
-      value,
-      style: TextStyle(color: Colors.grey[700]),
-    );
+    Widget content = Text(value, style: TextStyle(color: Colors.grey[700]));
 
     if (isSecure) {
       content = SecureContent(
@@ -230,7 +224,9 @@ class SecureImageCard extends StatelessWidget {
             child: Card(
               elevation: 1,
               clipBehavior: Clip.antiAlias,
-              shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+              ),
               child: Image.network(imageUrl, fit: BoxFit.cover),
             ),
           ),
