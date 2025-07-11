@@ -1,7 +1,7 @@
 name: flutter_secure_wrap
 description: "Secure Flutter screens by masking sensitive content using customizable blur layers, dynamic sizing, and adaptive visibility logic."
 version: 0.0.1
-homepage:
+homepage: https://github.com/Shahid1611/flutter_secure_wrap
 
 environment:
   sdk: ^3.8.1
